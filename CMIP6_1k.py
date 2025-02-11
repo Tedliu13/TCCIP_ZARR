@@ -12,6 +12,7 @@ import time
 import json
 import cftime
 import threading
+#20250211 修改popup資訊，下載時間改為3天6小時
 
 def show_warning():
     warning_window = tk.Toplevel(root)
@@ -37,9 +38,9 @@ def show_warning():
 
     label = tk.Label(
         warning_window, 
-        text="CMIP6 1km統計降尺度日資料，因解析度高，資料量龐大，需要花費較長時間下載，以桃園為例\n"
-             "共有1223個網格，2度C所有模式情境共有86組資料，每組各20年資料，共1720組資料，處理加上\n"
-             "下載時間約62小時(2天14小時)，敬請您做好準備與耐心等候~\n\n"
+        text="TCCIP AR6 1km統計降尺度日資料，因解析度高，資料量龐大，需要花費較長時間下載，\n"
+             "以桃園為例，共1223個網格，2度C所有模式情境86組，每組各20年，共1720組資料\n"
+             "處理加下載時間約3天6小時，敬請您做好準備與耐心等候~\n\n"
              "本工具需另外申請雲端金鑰，若您尚未取得，請洽TCCIP取得雲端資料庫金鑰。\n"
              "若您需要不同的下載格點，請修改grids.csv或將不同縣市的格點檔案置換成grids.csv即可",
         font=("微軟正黑體", 12),  # 調整字體大小
@@ -216,7 +217,7 @@ def start_processing_thread():
 
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", lambda: os._exit(0))
-root.title("TCCIP雲端資料 CMIP6 1km 統計降尺度日資料下載工具")
+root.title("TCCIP AR6 1km 統計降尺度日資料 雲端下載工具")
 # 設定視窗大小
 window_width = 600
 window_height = 600
